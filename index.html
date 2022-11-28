@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Weather Report</title>
+</head>
+<body>
+    <h1>Weather Report</h1>
+    <br>
+    <section>
+        <form>
+            <label for="city">* Enter city name: </label><br>
+            <input type="text" id="city" name="q" autofocus> <span id="errorMsg"></span><br>
+            <button type="submit">Search</button>        
+        </form>
+        <div id="displayResult">
+        </div>    
+    </section>
+    <script src="main.js"></script>
+</body>
+</html>

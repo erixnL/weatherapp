@@ -1,0 +1,35 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+section {
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+}
+form {
+    display: block;
+    margin-right: 30px;
+}
+input {
+    margin: 10px 0;
+}
+img {
+    width: 50px;
+}
+
+.displayResult {
+    display: flex;
+    margin-left: 20px;
+
+}
+
+.city-name {
+    font-weight: normal;
+    font-size: 1rem;
+}
+.tem {
+    font-weight: bold;
+    color: grey;
+    font-size: 1.2rem;
+}
