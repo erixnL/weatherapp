@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    display: block;
 }
 section {
     width: 50%;
@@ -8,8 +9,11 @@ section {
     display: flex;
 }
 form {
-    display: block;
     margin-right: 30px;
+    float: left;
+}
+button, form, label {
+    display: block;
 }
 input {
     margin: 10px 0;
@@ -21,10 +25,11 @@ img {
 .displayResult {
     display: flex;
     margin-left: 20px;
+    float: right;
 
 }
 
-.city-name {
+.cityName {
     font-weight: normal;
     font-size: 1rem;
 }
@@ -32,4 +37,10 @@ img {
     font-weight: bold;
     color: grey;
     font-size: 1.2rem;
+}
+
+span.error {
+    display: none;
+    padding: 10px;
+    color: red;
 }

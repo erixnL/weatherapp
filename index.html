@@ -15,8 +15,11 @@
     <br>
     <section>
         <form>
-            <label for="city">* Enter city name: </label><br>
-            <input type="text" id="city" name="q" autofocus> <span id="errorMsg"></span><br>
+            <label for="city">* Enter city name: </label>
+            <input type="text" id="city" name="q" autofocus>
+            <span class="error" id="errorMsg"></span>
+            <span class="error" id="invalideName">Please search for a valid city😩</span>
+            <span id="emptyInput">*City name must be identified</span>
             <button type="submit">Search</button>        
         </form>
         <div id="displayResult">
