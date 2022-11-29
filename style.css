@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     display: grid;
 }
 section#main {
@@ -11,7 +11,6 @@ section#main {
     grid-template-areas: 
     "form result";
 }
-
 form {
     margin-right: 30px;
     display: grid;
@@ -23,14 +22,12 @@ form {
     "errors"
     "button";
 }
-
 input {
     margin: 10px 0;
     grid-area: input;
     height: 20px;
     width: 80%;
 }
-
 label {
     grid-area: label;
 }
@@ -42,7 +39,6 @@ button {
 img {
     width: 50px;
 }
-
 .displayResult {
     display: grid;
     height: auto;
@@ -52,7 +48,6 @@ img {
     "icon tem"
     "cityName";
 }
-
 .cityName {
     grid-area: cityName;
 }
