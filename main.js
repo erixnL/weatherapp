@@ -20,9 +20,8 @@ form.addEventListener('submit', e=>{
         fetch(url).then(response=> response.json()).then(data => {
             const p = document.createElement('p');
             const textContent = `
-                    <img src=${data.current.condition.icon}>${data.current.condition.text}<span class='tem'> ${data.current.temp_c} &#8451;</span>
-                    <h2 class='cityName'>${data.location.name}, ${data.location.country}</h2><br>
-                    <br>
+                    <img class = 'icon'src=${data.current.condition.icon}>${data.current.condition.text}<span class='tem'> ${data.current.temp_c} &#8451;</span>
+                    <p class='cityName'>${data.location.name}, ${data.location.country}</p>
                     ` ;
             p.innerHTML = textContent;
             displayDiv.appendChild(p);
