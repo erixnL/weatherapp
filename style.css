@@ -22,44 +22,33 @@ form {
     "errors"
     "button";
 }
+#weatherResult {
+    display: grid;
+    grid-area: result;
+    height: auto;
+    margin-left: 20px;
+    grid-template-areas: 
+    "weather"
+    "cityName";
+}
 input {
-    margin: 10px 0;
     grid-area: input;
-    height: 20px;
     width: 80%;
 }
 label {
     grid-area: label;
 }
-
 button {
     grid-area: button;
     width: 30%;
-}
-img {
-    width: 50px;
-}
-.displayResult {
-    display: grid;
-    height: auto;
-    margin-left: 20px;
-    grid-area: result;
-    grid-template-areas: 
-    "icon tem"
-    "cityName";
-}
-.cityName {
-    grid-area: cityName;
 }
 .tem {
     font-weight: bold;
     color: grey;
     font-size: 1.2rem;
-    grid-area: tem;
 }
-.icon {
-    grid-area: icon;
-    margin: 0 10px;
+#weather {
+    grid-area: weather;
 }
 span.error {
     display: none;

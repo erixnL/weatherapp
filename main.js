@@ -2,7 +2,7 @@ const key = '969b2ddf4e224eccb47230525222711';
 const emptyInput = document.getElementById('emptyInput');
 const invalidCity = document.getElementById('invalideName');
 const form = document.querySelector('form');
-const displayDiv = document.getElementById('displayResult');
+const displayDiv = document.getElementById('weatherResult');
 const city = document.getElementById('city');
 
 document.getElementById('city').onfocus=function(){
@@ -18,20 +18,15 @@ form.addEventListener('submit', e=>{
     if (formValidate()) {
         const url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city.value}&aqi=no`;
         fetch(url).then(response=> response.json()).then(data => {
-            const p = document.createElement('p');
-            const textContent = `
-                    <img class = 'icon'src=${data.current.condition.icon}>${data.current.condition.text}<span class='tem'> ${data.current.temp_c} &#8451;</span>
-                    <p class='cityName'>${data.location.name}, ${data.location.country}</p>
-                    ` ;
-            p.innerHTML = textContent;
-            displayDiv.appendChild(p);
+            displayDiv.innerHTML = `
+                    <span id='weather'><img class = 'icon' src=${data.current.condition.icon}>${data.current.condition.text}<span class='tem'> ${data.current.temp_c} &#8451;</span></span>
+                    <span class='cityName'>${data.location.name}, ${data.location.country}</span>
+                    ` ; 
         }).catch(() => {
             invalidCity.style.display = 'block';
         });
     }
-
     }
-
 )
 
 function  formValidate() {
