@@ -12,7 +12,6 @@
 </head>
 <body>
     <h1>Weather Report</h1>
-    <br>
     <section id="main">
         <form>
             <label for="city">* Enter city name: </label>
@@ -21,9 +20,13 @@
             <span class="error" id="emptyInput">*City name must be identified</span>
             <button type="submit">Search</button>        
         </form>
-        <div id="weatherResult">
-        </div>    
+        <div id="weatherResult"></div>
+        <script id="template" type="x-tmpl-mustache">          
+            <span id='weather'><img class = 'icon' src={{icon}}>{{text}}<span class='tem'> {{temp_c}} &#8451;</span></span>
+            <span class='cityName'>{{name}}, {{country}}</span>  
+        </script>
     </section>
-    <script src="main.js"></script>
+    <script  src="https://unpkg.com/mustache@latest"></script>
+    <script  src="main.js"></script>
 </body>
 </html>

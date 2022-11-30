@@ -18,10 +18,16 @@ form.addEventListener('submit', e=>{
     if (formValidate()) {
         const url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city.value}&aqi=no`;
         fetch(url).then(response=> response.json()).then(data => {
-            displayDiv.innerHTML = `
-                    <span id='weather'><img class = 'icon' src=${data.current.condition.icon}>${data.current.condition.text}<span class='tem'> ${data.current.temp_c} &#8451;</span></span>
-                    <span class='cityName'>${data.location.name}, ${data.location.country}</span>
-                    ` ; 
+            var dataSet = {
+                "icon": data.current.condition.icon,
+                "text": data.current.condition.text,
+                "temp_c": data.current.temp_c,
+                "name": data.location.name,
+                "country": data.location.country
+            };
+            var template = document.getElementById('template').innerHTML
+            var renderedContent = Mustache.render(template, dataSet);
+            displayDiv.innerHTML = renderedContent;
         }).catch(() => {
             invalidCity.style.display = 'block';
         });
