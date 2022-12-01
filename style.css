@@ -1,35 +1,81 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
+    display: grid;
 }
-section {
-    width: 50%;
+section#main {
+    width: 70%;
     height: auto;
     padding: 10px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-template-areas: 
+    "form result";
 }
 form {
-    display: block;
     margin-right: 30px;
+    display: grid;
+    grid-area: form;
+    height: 100px;
+    grid-template-areas: 
+    "label"
+    "input"
+    "errors"
+    "button";
+}
+#weatherResult {
+    display: grid;
+    grid-area: result;
+    height: auto;
+    margin-left: 20px;
+    grid-template-areas: 
+    "weather"
+    "cityName";
 }
 input {
-    margin: 10px 0;
+    grid-area: input;
+    width: 80%;
 }
-img {
-    width: 50px;
+label {
+    grid-area: label;
 }
-
-.displayResult {
-    display: flex;
-    margin-left: 20px;
-
-}
-
-.city-name {
-    font-weight: normal;
-    font-size: 1rem;
+button {
+    grid-area: button;
+    width: 30%;
 }
 .tem {
     font-weight: bold;
     color: grey;
     font-size: 1.2rem;
+}
+#weather {
+    grid-area: weather;
+}
+span.error {
+    display: none;
+    color: red;
+    grid-area: errors;
+}
+.icon {
+    margin-right: 10px;
+}
+.icon, .weatherText, .tem {
+    display: inline;
+    vertical-align: middle;
+}
+.cityName {
+    margin-left: 20px;
+}
+@media screen and (max-width: 1000px) {
+    section#main {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 700px) {
+    section#main {
+        display: block;
+    }
+    #weatherResult {
+        margin-top: 20px;
+        margin-left: 0;
+    }
 }
