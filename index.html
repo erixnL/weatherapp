@@ -22,11 +22,11 @@
         </form>
         <div id="weatherResult"></div>
         <script id="template" type="x-tmpl-mustache">          
-            <span id='weather'><img class = 'icon' src={{icon}}>{{text}}<span class='tem'> {{temp_c}} &#8451;</span></span>
-            <span class='cityName'>{{name}}, {{country}}</span>  
+            <span id="weather"><img class = "icon" src={{icon}}><span class="weatherText">{{text}}</span><span class="tem"> {{temp_c}} &#8451;</span></span>
+            <span class="cityName">{{name}}, {{country}}</span>  
         </script>
     </section>
-    <script  src="https://unpkg.com/mustache@latest"></script>
-    <script  src="main.js"></script>
+    <script src="https://unpkg.com/mustache@latest"></script>
+    <script src="main.js"></script>
 </body>
 </html>

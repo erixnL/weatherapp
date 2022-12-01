@@ -55,3 +55,13 @@ span.error {
     color: red;
     grid-area: errors;
 }
+.icon {
+    margin-right: 10px;
+}
+.icon, .weatherText, .tem {
+    display: inline;
+    vertical-align: middle;
+}
+.cityName {
+    margin-left: 20px;
+}
