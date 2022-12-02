@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" src="src/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
@@ -29,7 +28,9 @@
             <span id="weather"><img class = "icon" src={{icon}}><span class="weatherText">{{text}}</span><span class="tem"> {{temp_c}} &#8451;</span></span>
             <span class="cityName">{{name}}, {{country}}</span>  
         </script>
-
+        <script id="forecastTemplate" type="x-tmpl-mustache">
+            <li><span>{{date}}:  {{max}} - {{min}} &#8451;</span>` + `<img class="icon" src={{icon}}><span class="weatherText">{{conditionText}}</span></li>
+        </script>
     </section>
     <script src="https://unpkg.com/mustache@latest"></script>
     <script src="app.js"></script>
