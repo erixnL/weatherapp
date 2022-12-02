@@ -350,7 +350,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    font-family: \"Roboto\", sans-serif;\n    display: grid;\n}\nsection#main {\n    width: 70%;\n    height: auto;\n    padding: 10px;\n    display: grid;\n    grid-template-columns: 30% auto;\n    grid-template-areas: \n    \"form result\";\n}\nform {\n    margin-right: 30px;\n    display: grid;\n    grid-area: form;\n    height: 100px;\n    grid-template-areas: \n    \"label\"\n    \"input\"\n    \"errors\"\n    \"button\";\n}\n#weatherResult {\n    display: grid;\n    grid-area: result;\n    height: auto;\n    margin-left: 20px;\n    grid-template-areas: \n    \"weather\"\n    \"cityName\";\n}\ninput {\n    grid-area: input;\n    width: 80%;\n}\nlabel {\n    grid-area: label;\n}\nbutton {\n    grid-area: button;\n    width: 30%;\n}\n.tem {\n    font-weight: bold;\n    color: grey;\n    font-size: 1.2rem;\n}\n#weather {\n    grid-area: weather;\n}\nspan.error {\n    display: none;\n    color: red;\n    grid-area: errors;\n}\n.icon {\n    margin-right: 10px;\n}\n.icon, .weatherText, .tem {\n    display: inline;\n    vertical-align: middle;\n}\n.cityName {\n    margin-left: 20px;\n}\n@media screen and (max-width: 1000px) {\n    section#main {\n        width: 100%;\n    }\n}\n@media screen and (max-width: 700px) {\n    section#main {\n        display: block;\n    }\n    #weatherResult {\n        margin-top: 20px;\n        margin-left: 0;\n    }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n    font-family: \"Roboto\", sans-serif;\n    display: grid;\n}\nsection#main {\n    width: 70%;\n    height: auto;\n    padding: 10px;\n    display: grid;\n    grid-template-columns: 30% auto;\n    grid-template-areas: \n    \"form result\";\n}\nform {\n    margin-right: 30px;\n    display: grid;\n    grid-area: form;\n    height: 100px;\n    grid-template-areas: \n    \"label\"\n    \"input\"\n    \"errors\"\n    \"button\";\n}\n#weatherResult {\n    display: grid;\n    grid-area: result;\n    height: auto;\n    margin-left: 20px;\n    grid-template-areas: \n    \"weather\"\n    \"cityName\";\n}\ninput {\n    grid-area: input;\n    margin-bottom: 20px;\n    width: 80%;\n}\nlabel {\n    grid-area: label;\n}\n#buttons {\n    margin-top: 15px;\n}\nbutton {\n    border: none;\n    padding: 5px;\n    margin: 0 10px 0 10px;\n    border-radius: 5px;\n}\n.tem {\n    font-weight: bold;\n    color: grey;\n    font-size: 1.2rem;\n}\n#weather {\n    grid-area: weather;\n}\nspan.error {\n    display: none;\n    color: red;\n    grid-area: errors;\n}\n.icon {\n    margin-right: 10px;\n}\n.icon, .weatherText, .tem {\n    display: inline;\n    vertical-align: middle;\n}\n.cityName {\n    margin-left: 20px;\n}\nul {\n    list-style-type: none;\n}\n.resultHeadLine {\n    display: block;\n    margin-bottom: 10px;\n    font-weight: bold;\n    font-size: 1.5em;\n}\n@media screen and (max-width: 1000px) {\n    section#main {\n        width: 100%;\n    }\n}\n@media screen and (max-width: 700px) {\n    section#main {\n        display: block;\n    }\n    #weatherResult {\n        margin-top: 20px;\n        margin-left: 0;\n    }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -455,6 +455,139 @@ module.exports = function (cssWithMappingToString) {
   return list;
 };
 
+/***/ }),
+/* 11 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "weatherForecast": () => (/* binding */ weatherForecast)
+/* harmony export */ });
+/* harmony import */ var _formValidation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _clearContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+
+
+var key = '969b2ddf4e224eccb47230525222711';
+var invalidCity = document.getElementById('invalideName');
+var displayDiv = document.getElementById('weatherResult');
+var city = document.getElementById('city');
+var weatherForecast = function weatherForecast() {
+  document.getElementById('forecastBtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    (0,_formValidation__WEBPACK_IMPORTED_MODULE_0__.validation)();
+    (0,_clearContent__WEBPACK_IMPORTED_MODULE_1__.clearContent)();
+    var forecastList = document.createElement('ul');
+    if ((0,_formValidation__WEBPACK_IMPORTED_MODULE_0__.validation)()) {
+      var url = "http://api.weatherapi.com/v1/forecast.json?key=".concat(key, "&q=").concat(city.value, "&days=5&aqi=no&alerts=no");
+      fetch(url).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        var forecastData = data.forecast.forecastday;
+        var headLine = document.createElement('li');
+        headLine.innerHTML = "<span class=\"resultHeadLine\">".concat(data.location.name, ", ").concat(data.location.country, " in Next Five Days:<span>");
+        forecastList.append(headLine);
+        forecastData.forEach(function (element) {
+          ;
+          var perDay = {
+            "date": element.date,
+            "max": element.day.maxtemp_c,
+            "min": element.day.mintemp_c,
+            "icon": "https:" + element.day.condition.icon,
+            "conditionText": element.day.condition.text
+          };
+          var li = document.createElement('li');
+          li.innerHTML = "<span>".concat(perDay.date, ":  ").concat(perDay.max, " - ").concat(perDay.min, " &#8451;</span>") + "<img class=\"icon\" src=".concat(perDay.icon, "><span class=\"weatherText\">").concat(perDay.conditionText, "</span>");
+          forecastList.appendChild(li);
+        });
+        displayDiv.appendChild(forecastList);
+      })["catch"](function () {
+        invalidCity.style.display = 'block';
+      });
+    }
+  });
+};
+
+
+/***/ }),
+/* 12 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "clearContent": () => (/* binding */ clearContent)
+/* harmony export */ });
+var invalidCity = document.getElementById('invalideName');
+var displayDiv = document.getElementById('weatherResult');
+var clearContent = function clearContent() {
+  emptyInput.style.display = 'none';
+  invalidCity.style.display = 'none';
+  if (displayDiv.innerHTML != '') {
+    displayDiv.innerHTML = '';
+  }
+};
+
+
+/***/ }),
+/* 13 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "validation": () => (/* binding */ validation)
+/* harmony export */ });
+var validation = function formValidate() {
+  if (city.value === '') {
+    emptyInput.style.display = 'block';
+    return false;
+  }
+  return true;
+};
+
+
+/***/ }),
+/* 14 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "currentWeatherSearch": () => (/* binding */ currentWeatherSearch)
+/* harmony export */ });
+/* harmony import */ var _formValidation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _clearContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+
+
+var key = '969b2ddf4e224eccb47230525222711';
+var invalidCity = document.getElementById('invalideName');
+var displayDiv = document.getElementById('weatherResult');
+var city = document.getElementById('city');
+var currentWeatherSearch = function currentWeatherSearch() {
+  document.getElementById('submit').addEventListener('click', function (e) {
+    e.preventDefault();
+    (0,_formValidation__WEBPACK_IMPORTED_MODULE_0__.validation)();
+    (0,_clearContent__WEBPACK_IMPORTED_MODULE_1__.clearContent)();
+    if ((0,_formValidation__WEBPACK_IMPORTED_MODULE_0__.validation)()) {
+      var url = "http://api.weatherapi.com/v1/current.json?key=".concat(key, "&q=").concat(city.value, "&aqi=no");
+      fetch(url).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        var dataSet = {
+          "icon": "https://" + data.current.condition.icon.split('//')[1],
+          "text": data.current.condition.text,
+          "temp_c": data.current.temp_c,
+          "name": data.location.name,
+          "country": data.location.country
+        };
+        var template = document.getElementById('template').innerHTML;
+        var renderedContent = Mustache.render(template, dataSet);
+        displayDiv.innerHTML = renderedContent;
+      })["catch"](function () {
+        invalidCity.style.display = 'block';
+      });
+    }
+  });
+};
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -534,56 +667,20 @@ var __webpack_exports__ = {};
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _currentWeather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var _forecast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
 
-var key = '969b2ddf4e224eccb47230525222711';
 var emptyInput = document.getElementById('emptyInput');
 var invalidCity = document.getElementById('invalideName');
-var form = document.querySelector('form');
-var displayDiv = document.getElementById('weatherResult');
-var city = document.getElementById('city');
+
+
 document.getElementById('city').onfocus = function () {
   this.value = '';
   emptyInput.style.display = 'none';
   invalidCity.style.display = 'none';
 };
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  formValidate();
-  clearContent();
-  if (formValidate()) {
-    var url = "http://api.weatherapi.com/v1/current.json?key=".concat(key, "&q=").concat(city.value, "&aqi=no");
-    fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      var dataSet = {
-        "icon": "https://" + data.current.condition.icon.split('//')[1],
-        "text": data.current.condition.text,
-        "temp_c": data.current.temp_c,
-        "name": data.location.name,
-        "country": data.location.country
-      };
-      var template = document.getElementById('template').innerHTML;
-      var renderedContent = Mustache.render(template, dataSet);
-      displayDiv.innerHTML = renderedContent;
-    })["catch"](function () {
-      invalidCity.style.display = 'block';
-    });
-  }
-});
-function formValidate() {
-  if (city.value === '') {
-    emptyInput.style.display = 'block';
-    return false;
-  }
-  return true;
-}
-function clearContent() {
-  emptyInput.style.display = 'none';
-  invalidCity.style.display = 'none';
-  if (displayDiv.innerHTML != '') {
-    displayDiv.innerHTML = '';
-  }
-}
+(0,_currentWeather__WEBPACK_IMPORTED_MODULE_1__.currentWeatherSearch)();
+(0,_forecast__WEBPACK_IMPORTED_MODULE_2__.weatherForecast)();
 })();
 
 /******/ })()

@@ -18,13 +18,18 @@
             <input type="text" id="city" name="q" autofocus>
             <span class="error" id="invalideName">Please search for a valid city😩</span>
             <span class="error" id="emptyInput">*City name must be identified</span>
-            <button type="submit">Search</button>        
+            <div class="buttons">
+                <button id="submit">Search</button>
+                <button id="forecastBtn" >Forecast</button>
+            </div>     
         </form>
-        <div id="weatherResult"></div>
+        <div id="weatherResult">
+        </div>
         <script id="template" type="x-tmpl-mustache">          
             <span id="weather"><img class = "icon" src={{icon}}><span class="weatherText">{{text}}</span><span class="tem"> {{temp_c}} &#8451;</span></span>
             <span class="cityName">{{name}}, {{country}}</span>  
         </script>
+
     </section>
     <script src="https://unpkg.com/mustache@latest"></script>
     <script src="app.js"></script>
