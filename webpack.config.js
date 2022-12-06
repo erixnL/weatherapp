@@ -1,29 +1,38 @@
 const path = require('path'); 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
 
 module.exports = { 
   // mode: "development", 
   mode: process.env.NODE_ENV === "production" ? "production": "development",
-  entry: './dist/js/main.js',
+  entry: './src/js/main.js',
   output: { 
     path: __dirname + '/dist', 
     filename: "app.js" ,
+    clean: true,
   }, 
     devServer: { 
+      watchFiles: ["src/**/*", "index.html"],
       static: "./dist" }, 
   plugins:  [
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
+    new HtmlWebpackPlugin({
+      template: "./index.html"
+    }),
+    new MiniCssExtractPlugin()
   ],
-    module: {
-      rules: [
+  module: {
+    rules: [
         {
           test: /\.css$/,
           use: [
-            
-            MiniCssExtractPlugin.loader, 'css-loader',
-          ]
+            MiniCssExtractPlugin.loader, 'css-loader'
+            ]
+          
         },
         {
           test: /\.js$/, 
@@ -35,5 +44,10 @@ module.exports = {
         }
       }
       ]
+    },
+    optimization: {
+      minimizer: [
+        new CssMinimizerPlugin(),
+      ],
     },
 }
