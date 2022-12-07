@@ -22,7 +22,8 @@ module.exports = {
       filename: '[name].css',
     }),
     new HtmlWebpackPlugin({
-      template: "./index.html"
+      template: "./index.html",
+      filename: 'index.html'
     }),
     new MiniCssExtractPlugin()
   ],
@@ -49,7 +50,7 @@ module.exports = {
     optimization: {
       minimizer: [
         new CssMinimizerPlugin(),
-        new TerserPlugin()
+        new TerserPlugin(),
       ],
     },
 }
