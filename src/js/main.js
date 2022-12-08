@@ -1,8 +1,9 @@
 import '../css/base.css';
 const emptyInput = document.getElementById('emptyInput');
 const invalidCity = document.getElementById('invalideName');
-import { currentWeatherSearch } from './currentWeather';
-import { weatherForecast } from './forecast';
+import { currentWeatherSearch } from './currentWeather.js';
+import { weatherForecast } from './forecast.js';
+
 
 document.getElementById('city').onfocus=function(){
     this.value=''; 
@@ -12,3 +13,5 @@ document.getElementById('city').onfocus=function(){
 
 currentWeatherSearch();
 weatherForecast();
+
+

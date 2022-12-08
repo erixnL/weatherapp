@@ -3,6 +3,7 @@ const validation = function  formValidate() {
         emptyInput.style.display = 'block';
         return false;
     }
+
     return true;
 
 }

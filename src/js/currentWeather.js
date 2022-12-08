@@ -1,5 +1,5 @@
-import { validation } from "./formValidation";
-import { clearContent } from "./clearContent";
+import { validation } from "./formValidation.js";
+import { clearContent } from "./clearContent.js";
 const key = '969b2ddf4e224eccb47230525222711';
 const invalidCity = document.getElementById('invalideName');
 const displayDiv = document.getElementById('weatherResult');

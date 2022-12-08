@@ -1,22 +1,21 @@
-import { validation } from "./formValidation";
-import { clearContent } from "./clearContent";
+import { validation } from "./formValidation.js";
+import { clearContent } from "./clearContent.js";
 const key = '969b2ddf4e224eccb47230525222711';
 const invalidCity = document.getElementById('invalideName');
 const displayDiv = document.getElementById('weatherResult');
 const city = document.getElementById('city');
 
 const weatherForecast = function() {document.getElementById('forecastBtn').addEventListener('click', e=>{
-    e.preventDefault(); 
+    e.preventDefault();
     validation();
     clearContent();
     var forecastList = document.createElement('ul');
+    var listContent = "";
     if (validation()) {
         const url = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city.value}&days=5&aqi=no&alerts=no`;
         fetch(url).then(response=> response.json()).then(data => {
+            listContent +=  `<li><span class="resultHeadLine">${data.location.name}, ${data.location.country} in Next Five Days:<span></li>`
             var forecastData = data.forecast.forecastday;
-            var headLine = document.createElement('li');
-            headLine.innerHTML = `<span class="resultHeadLine">${data.location.name}, ${data.location.country} in Next Five Days:<span>`;
-            forecastList.appendChild(headLine);
             forecastData.forEach(element=>{
                     var perDay = {
                         "date": element.date,
@@ -27,9 +26,13 @@ const weatherForecast = function() {document.getElementById('forecastBtn').addEv
                     };
                     var template = document.getElementById('forecastTemplate').innerHTML
                     var renderedContent = Mustache.render(template, perDay);
-                    forecastList.innerHTML += renderedContent;
+                    listContent += renderedContent;     
                 });
-            displayDiv.appendChild(forecastList);
+            if (displayDiv.innerHTML == "") {
+                forecastList.innerHTML = listContent;
+                displayDiv.appendChild(forecastList);
+            };
+            
         }).catch(() => {
             invalidCity.style.display = 'block';
         });
