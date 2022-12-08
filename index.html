@@ -22,6 +22,15 @@
                 <button id="submit">Search</button>
                 <button id="forecastBtn" >Forecast</button>
             </div>     
+            <div id="defaultCity">
+            </div>
+            <script id="userCityTemplate" type="x-tmpl-mustache">
+                <span class="cityName">{{name}}, {{country}}</span><button id="changeDefault">Change</button>
+                <span id="weather"><img class = "icon" src={{icon}}><span class="weatherText">{{text}}</span><span class="tem"> {{temp_c}} &#8451;</span></span>
+            </script>
+            <script id="changeDefaultCityTemplate" type="x-tmpl-mustache">
+                <span><input><button>Save</button></span>
+            </script>
         </form>
         <div id="weatherResult">
         </div>
@@ -33,16 +42,6 @@
             <li><span>{{date}}:  {{max}} - {{min}} &#8451;</span><img class="icon" src={{icon}}><span class="weatherText">{{conditionText}}</span></li>
         </script>
     </section>
-    <seciton id="userCity">
-        <div id="defaultCity">
-
-        </div>
-        <script id="userCityTemplate" type="x-tmpl-mustache">
-            <span class="cityName">{{name}}, {{country}}</span> 
-            <span id="weather"><img class = "icon" src={{icon}}><span class="weatherText">{{text}}</span><span class="tem"> {{temp_c}} &#8451;</span></span>
-        </script>
-
-    </seciton>
     <script src="https://unpkg.com/mustache@latest"></script>
     <script type="module" src="./src/js/main.js"></script>
 </body>

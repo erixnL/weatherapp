@@ -5,15 +5,15 @@ import { showDefaultCity } from './userDefaultCity.js';
 import { currentWeatherSearch } from './currentWeather.js';
 import { weatherForecast } from './forecast.js';
 
-
 document.getElementById('city').onfocus=function(){
     this.value=''; 
     emptyInput.style.display = 'none';
     invalidCity.style.display = 'none';
 }
 
-showDefaultCity()
+window.onload = showDefaultCity();
 currentWeatherSearch();
 weatherForecast();
+
 
 
