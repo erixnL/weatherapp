@@ -34,3 +34,9 @@ ul {
     font-weight: bold;
     font-size: 1.5em;
 }
+
+#defaultCity .cityName {
+    margin-top: 20px;
+    display: block;
+    font-size: 1.3em;
+}

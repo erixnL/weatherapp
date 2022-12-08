@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link href="./src/css/base.css" rel="stylesheet">
     <title>Weather Report</title>
 </head>
 <body>
@@ -33,9 +34,16 @@
         </script>
     </section>
     <seciton id="userCity">
+        <div id="defaultCity">
 
+        </div>
+        <script id="userCityTemplate" type="x-tmpl-mustache">
+            <span class="cityName">{{name}}, {{country}}</span> 
+            <span id="weather"><img class = "icon" src={{icon}}><span class="weatherText">{{text}}</span><span class="tem"> {{temp_c}} &#8451;</span></span>
+        </script>
 
     </seciton>
     <script src="https://unpkg.com/mustache@latest"></script>
+    <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>
