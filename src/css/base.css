@@ -1,16 +1,30 @@
 @import "weatherapp.css";
 body {
-    font-family: "Roboto", sans-serif;
+    background-color: #005689;
+    color: white;
+    margin: 50px 20px 30px 20px;
     display: grid;
 }
 section#main {
     width: 70%;
     height: auto;
     padding: 10px;
+    height: 300px;
+    border-right: 1px solid #d5eeff;
+    margin-right: 30px;
     display: grid;
     grid-template-columns: 30% auto;
     grid-template-areas: 
-    "form result";
+    "form"
+    "defaultCity";
+}
+section#result {
+    grid-area: result;
+    width: 80%;
+}
+h1 {
+    grid-area: h1;
+    margin-left: 20px;
 }
 form {
     margin-right: 30px;
@@ -47,14 +61,57 @@ span.error {
     color: red;
     grid-area: errors;
 }
-
+#defaultCity {
+    margin-top: 10px;
+    grid-area: defaultCity;
+    color: black;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #edf7fa;
+    padding: 3px;
+    width: 70%;
+}
+#defaultCity .cityName {
+    margin-top: 25px;
+    margin-right: 10px;
+    display: inline-block;
+    font-size: 1em;
+}
+#changeDefault {
+    display: inline-block;
+}
+#defaultCity #weather {
+    display: block;
+    
+}
+#defaultCity .weatherText, .tem{
+    font-size: 0.8em;
+}
 @media screen and (max-width: 1000px) {
     section#main {
+        width: 100%;
+    }
+    section#result {
         width: 100%;
     }
 }
 @media screen and (max-width: 700px) {
     section#main {
+       height: auto;
+       border-right: none;       
+    }
+    #weatherResult {
+        margin-top: 10px;
+        font-size: 0.8em;
+    }
+    #defaultCity {
+        width: 100%;
+    }
+
+}
+@media screen and (max-width: 520px){
+
+    .weather {
         display: block;
     }
     #weatherResult {

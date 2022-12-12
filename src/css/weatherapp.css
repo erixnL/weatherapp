@@ -4,8 +4,8 @@
     height: auto;
     margin-left: 20px;
     grid-template-areas: 
-    "weather"
-    "cityName";
+    "cityName"
+    "weather";
 }
 .tem {
     font-weight: bold;
@@ -27,6 +27,9 @@
 }
 ul {
     list-style-type: none;
+}
+li {
+    border-bottom: 1px solid #d5eeff;
 }
 .resultHeadLine {
     display: block;

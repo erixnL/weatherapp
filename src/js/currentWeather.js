@@ -25,6 +25,9 @@ const currentWeatherSearch = function () {document.getElementById('submit').addE
         }).catch(() => {
             invalidCity.style.display = 'block';
         });
+    if(window.innerWidth <= 700){
+            document.getElementById('defaultCity').style.display = 'none';
+        };
     }
     }
 )
