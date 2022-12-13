@@ -2,7 +2,6 @@
     display: grid;
     grid-area: result;
     height: auto;
-    margin-left: 20px;
     grid-template-areas: 
     "cityName"
     "weather";
@@ -36,10 +35,4 @@ li {
     margin-bottom: 10px;
     font-weight: bold;
     font-size: 1.5em;
-}
-
-#defaultCity .cityName {
-    margin-top: 20px;
-    display: block;
-    font-size: 1.3em;
 }

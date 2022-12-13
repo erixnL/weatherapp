@@ -1,4 +1,4 @@
-const key = '969b2ddf4e224eccb47230525222711';
+const key = 'd5b2e1a2f78a432e82221541221212';
 var defaultCityDiv = document.getElementById('defaultCity')
 var defaultCity = 'wollongong';
 

@@ -1,6 +1,6 @@
 import { validation } from "./formValidation.js";
 import { clearContent } from "./clearContent.js";
-const key = '969b2ddf4e224eccb47230525222711';
+const key = 'd5b2e1a2f78a432e82221541221212';
 const invalidCity = document.getElementById('invalideName');
 const displayDiv = document.getElementById('weatherResult');
 const city = document.getElementById('city');

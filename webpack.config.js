@@ -19,7 +19,8 @@ module.exports = {
   }, 
   devServer: { 
     watchFiles: ["src/**/*", "index.html"],
-    static: "./dist" 
+    static: "./dist" ,
+    hot: true,
   }, 
   plugins:  [
     new MiniCssExtractPlugin({
@@ -29,7 +30,7 @@ module.exports = {
       template: "./index.html",
       filename: 'index.html'
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
