@@ -8,15 +8,19 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = { 
   // mode: "development", 
   mode: process.env.NODE_ENV === "production" ? "production": "development",
+  node: {
+    __dirname: false,
+  },
   entry: './src/js/main.js',
   output: { 
     path: __dirname + '/dist', 
     filename: "app.js" ,
     clean: true,
   }, 
-    devServer: { 
-      watchFiles: ["src/**/*", "index.html"],
-      static: "./dist" }, 
+  devServer: { 
+    watchFiles: ["src/**/*", "index.html"],
+    static: "./dist" 
+  }, 
   plugins:  [
     new MiniCssExtractPlugin({
       filename: '[name].css',
