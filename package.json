@@ -11,14 +11,17 @@
         "css-loader": "^6.7.2",
         "html-webpack-plugin": "^5.5.0",
         "mini-css-extract-plugin": "^2.7.1",
+        "node-sass": "^8.0.0",
+        "sass": "^1.56.2",
+        "sass-loader": "^13.2.0",
+        "webpack": "^5.75.0",
         "webpack-dev-server": "^4.11.1"
     },
     "dependencies": {
         "babel-loader": "^9.1.0",
         "cli": "^1.0.1",
         "css-minimizer-webpack-plugin": "^4.2.2",
-        "plugin": "^0.3.3",
-        "terser": "^5.16.1",
-        "webpack": "^5.75.0"
+        "plugin": "^0.0.15",
+        "terser": "^5.16.1"
     }
 }

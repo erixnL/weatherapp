@@ -1,14 +1,14 @@
-@import "weatherapp.css";
+@import './cssreset';
+@import './variables';
+@import './buttons';
+@import './weatherapp';
+@import './defaultCity';
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-}
+
+
 body {
-    background-color: #005689;
-    color: white;
+    background-color: $body-background;
+    color: $light-font;
     margin: 50px 20px 30px 20px;
     display: grid;
     width: 80%;
@@ -57,45 +57,11 @@ input {
 label {
     grid-area: label;
 }
-.buttons {
-    grid-area: buttons;
-}
-button {
-    border: none;
-    padding: 5px;
-    margin-right: 10px;
-    border-radius: 5px;
-}
+
 span.error {
     display: none;
     color: red;
     grid-area: errors;
-}
-#defaultCity {
-    margin-top: 10px;
-    grid-area: defaultCity;
-    color: black;
-    border-style: none;
-    border-radius: 5px;
-    background-color: #edf7fa;
-    padding: 3px;
-    width: 70%;
-}
-#defaultCity .cityName {
-    margin-top: 25px;
-    margin-right: 10px;
-    display: inline-block;
-    font-size: 1em;
-}
-#changeDefault {
-    display: inline-block;
-}
-#defaultCity #weather {
-    display: block;
-    
-}
-#defaultCity .weatherText, .tem{
-    font-size: 0.8em;
 }
 @media screen and (max-width: 1000px) {
     body {
@@ -130,6 +96,9 @@ span.error {
 
 }
 @media screen and (max-width: 520px){
+    body {
+        margin-right: 10px;
+    }
 
     .weather {
         display: block;
@@ -137,7 +106,7 @@ span.error {
     #changeDefault {
         width: 15%;
         font-size: 0.5em;
-        margin-right: 0px;
     }
     
 }
+

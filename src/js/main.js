@@ -1,4 +1,4 @@
-import '../css/base.css';
+import '../css/base.scss';
 const emptyInput = document.getElementById('emptyInput');
 const invalidCity = document.getElementById('invalideName');
 import { showDefaultCity } from './userDefaultCity.js';
