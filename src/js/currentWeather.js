@@ -1,21 +1,15 @@
-const key = '969b2ddf4e224eccb47230525222711';
-const emptyInput = document.getElementById('emptyInput');
+import { validation } from "./formValidation.js";
+import { clearContent } from "./clearContent.js";
+const key = 'd5b2e1a2f78a432e82221541221212';
 const invalidCity = document.getElementById('invalideName');
-const form = document.querySelector('form');
 const displayDiv = document.getElementById('weatherResult');
 const city = document.getElementById('city');
 
-document.getElementById('city').onfocus=function(){
-    this.value=''; 
-    emptyInput.style.display = 'none';
-    invalidCity.style.display = 'none';
-}
-
-form.addEventListener('submit', e=>{
+const currentWeatherSearch = function () {document.getElementById('submit').addEventListener('click', e=>{
     e.preventDefault(); 
-    formValidate();
+    validation();
     clearContent();
-    if (formValidate()) {
+    if (validation()) {
         const url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city.value}&aqi=no`;
         fetch(url).then(response=> response.json()).then(data => {
             var dataSet = {
@@ -31,23 +25,12 @@ form.addEventListener('submit', e=>{
         }).catch(() => {
             invalidCity.style.display = 'block';
         });
+    if(window.innerWidth <= 700){
+            document.getElementById('defaultCity').style.display = 'none';
+        };
     }
     }
 )
-
-function  formValidate() {
-    if (city.value === ''){
-        emptyInput.style.display = 'block';
-        return false;
-    }
-    return true;
-
 }
 
-function clearContent() {
-    emptyInput.style.display = 'none';
-    invalidCity.style.display = 'none';
-    if (displayDiv.innerHTML != '') {
-        displayDiv.innerHTML = '';
-    }
-}
+export {currentWeatherSearch};

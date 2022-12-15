@@ -1,0 +1,38 @@
+#weatherResult {
+    display: grid;
+    grid-area: result;
+    height: auto;
+    grid-template-areas: 
+    "cityName"
+    "weather";
+}
+.temperature {
+    font-weight: bold;
+    color: grey;
+    font-size: 1.2rem;
+}
+#weather {
+    grid-area: weather;
+}
+.icon {
+    margin-right: 10px;
+}
+.icon, .weatherText, .tem {
+    display: inline;
+    vertical-align: middle;
+}
+.cityName {
+    margin-left: 20px;
+}
+ul {
+    list-style-type: none;
+}
+li {
+    border-bottom: 1px solid #d5eeff;
+}
+.resultHeadLine {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.5em;
+}

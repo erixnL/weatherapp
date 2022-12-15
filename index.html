@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
@@ -18,15 +17,32 @@
             <input type="text" id="city" name="q" autofocus>
             <span class="error" id="invalideName">Please search for a valid city😩</span>
             <span class="error" id="emptyInput">*City name must be identified</span>
-            <button type="submit">Search</button>        
+            <div class="buttons">
+                <button id="submit">Search</button>
+                <button id="forecastBtn" >Forecast</button>
+            </div>            
         </form>
-        <div id="weatherResult"></div>
-        <script id="template" type="x-tmpl-mustache">          
+        <div id="defaultCity">
+        </div>
+        <script id="userCityTemplate" type="x-tmpl-mustache">
+            <span class="cityName">{{name}}, {{country}}</span><button id="changeDefault">Change</button>
             <span id="weather"><img class = "icon" src={{icon}}><span class="weatherText">{{text}}</span><span class="tem"> {{temp_c}} &#8451;</span></span>
-            <span class="cityName">{{name}}, {{country}}</span>  
+        </script>
+    </section>
+    <section id="result">
+        <div id="weatherResult">
+        </div>
+        <script id="template" type="x-tmpl-mustache">
+            <span class="cityName">{{name}}, {{country}}</span>        
+            <span id="weather"><img class = "icon" src={{icon}}><span class="weatherText">{{text}}</span><span class="temperature"> {{temp_c}} &#8451;</span></span>
+        </script>
+        <script id="changeTemplate" type="x-tmpl-mustache">
+            <input id="changedCity"><button id="saveChange">Save</button>
+        </script>
+        <script id="forecastTemplate" type="x-tmpl-mustache">
+            <li><span>{{date}}:  {{max}} - {{min}} &#8451;</span><img class="icon" src={{icon}}><span class="weatherText">{{conditionText}}</span></li>
         </script>
     </section>
     <script src="https://unpkg.com/mustache@latest"></script>
-    <script src="main.js"></script>
 </body>
 </html>
