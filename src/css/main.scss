@@ -2,10 +2,14 @@
 @import '../css/base/cssreset';
 
 @import '../css/abstracts/variables';
+@import '../css/abstracts/breakpoints';
+@import '../css/abstracts/mixins';
 
 @import '../css/layout/grid.scss';
 
+@import '../css/components/body';
 @import '../css/components/header.scss';
+@import '../css/components/mainSection';
 @import '../css/components/buttons';
 @import '../css/components/form';
 @import '../css/components/errorMsg';
@@ -13,68 +17,5 @@
 @import '../css/components/weatherapp';
 @import '../css/components/defaultCity';
 
-
-
-body {
-    background-color: $body-background;
-    color: $light-font;
-    margin: 50px 20px 30px 20px;
-    width: 80%;
-}
-section#main {
-    padding: 10px;
-    height: 300px;
-    border-right: 1px solid #d5eeff;
-    margin-right: 30px;
-}
-section#result {
-    width: 80%;
-}
-
-@media screen and (max-width: 1000px) {
-    body {
-        grid-template-columns: 1fr 3fr;
-    }
-    .icon {
-        display: block;
-        width: 15%;
-    }
-    .weatherText, .icon {
-        display: inline-block;
-    }
-    section#result {
-        width: 100%;
-    }
-}
-@media screen and (max-width: 700px) {
-    body {
-        display: block;
-    }
-    section#main {
-       height: auto;
-       border-right: none;       
-    }
-    #weatherResult {
-        margin-top: 10px;
-        font-size: 0.8em;
-    }
-    #defaultCity {
-        width: 100%;
-    }
-
-}
-@media screen and (max-width: 520px){
-    body {
-        margin-right: 10px;
-    }
-
-    .weather {
-        display: block;
-    }
-    #changeDefault {
-        width: 15%;
-        font-size: 0.5em;
-    }
-    
-}
+@import '../css/abstracts/responsive';
 
