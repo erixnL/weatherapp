@@ -6,16 +6,18 @@
 @import '../css/abstracts/mixins';
 
 @import '../css/layout/grid.scss';
+@import '../css/layout/body';
+@import '../css/layout/header';
+@import '../css/layout/mainSection';
 
-@import '../css/components/body';
-@import '../css/components/header.scss';
-@import '../css/components/mainSection';
 @import '../css/components/buttons';
-@import '../css/components/form';
+@import '../css/layout/form';
 @import '../css/components/errorMsg';
 @import '../css/components/userInput';
 @import '../css/components/weatherapp';
 @import '../css/components/defaultCity';
 
-@import '../css/abstracts/responsive';
+@import '../css/base/responsive';
+
+
 
