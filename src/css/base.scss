@@ -1,8 +1,8 @@
-@import './cssreset';
+@import '../css/layout/cssreset';
 @import './variables';
-@import './buttons';
-@import './weatherapp';
-@import './defaultCity';
+@import '../css/components/buttons';
+@import '../css/components/weatherapp';
+@import '../css/components/defaultCity';
 
 
 
@@ -60,7 +60,7 @@ label {
 
 span.error {
     display: none;
-    color: red;
+    color: $error-msg-color;
     grid-area: errors;
 }
 @media screen and (max-width: 1000px) {
