@@ -1,6 +1,5 @@
 #defaultCity {
     margin-top: 10px;
-    grid-area: defaultCity;
     color: black;
     border-style: none;
     border-radius: 5px;
@@ -13,9 +12,6 @@
     margin-right: 10px;
     display: inline-block;
     font-size: 1em;
-}
-#changeDefault {
-    display: inline-block;
 }
 #defaultCity #weather {
     display: block;

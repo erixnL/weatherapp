@@ -8,3 +8,9 @@ button {
     border-radius: 5px;
     background-color: $btn-background;
 }
+button:hover {
+    background-color: $btn-hover-background;
+}
+#changeDefault {
+    display: inline-block;
+}

@@ -1,6 +1,15 @@
+@charset 'utf-8';
 @import '../css/base/cssreset';
+
 @import '../css/abstracts/variables';
+
+@import '../css/layout/grid.scss';
+
+@import '../css/components/header.scss';
 @import '../css/components/buttons';
+@import '../css/components/form';
+@import '../css/components/errorMsg';
+@import '../css/components/userInput';
 @import '../css/components/weatherapp';
 @import '../css/components/defaultCity';
 
@@ -10,59 +19,18 @@ body {
     background-color: $body-background;
     color: $light-font;
     margin: 50px 20px 30px 20px;
-    display: grid;
     width: 80%;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: 
-    "h1 h1"
-    "main result";
 }
 section#main {
     padding: 10px;
     height: 300px;
     border-right: 1px solid #d5eeff;
     margin-right: 30px;
-    display: grid;
-    grid-area: main;
-    grid-template-areas: 
-    "form"
-    "defaultCity";
 }
 section#result {
-    grid-area: result;
     width: 80%;
 }
-h1 {
-    grid-area: h1;
-    margin-left: 20px;
-}
-form {
-    margin-right: 30px;
-    display: grid;
-    grid-area: form;
-    height: 100px;
-    grid-template-areas: 
-    "label"
-    "input"
-    "errors"
-    "buttons";
-}
 
-input {
-    grid-area: input;
-    margin: 20px 10px 20px 0;
-    width: 250px;
-    height: auto;
-}
-label {
-    grid-area: label;
-}
-
-span.error {
-    display: none;
-    color: $error-msg-color;
-    grid-area: errors;
-}
 @media screen and (max-width: 1000px) {
     body {
         grid-template-columns: 1fr 3fr;

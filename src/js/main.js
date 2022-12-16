@@ -12,6 +12,7 @@ document.getElementById('city').onfocus=function(){
 }
 
 window.onload = showDefaultCity();
+console.log(document.getElementById('changeDefault'));
 currentWeatherSearch();
 weatherForecast();
 
