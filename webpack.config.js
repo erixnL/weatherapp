@@ -12,6 +12,7 @@ module.exports = {
     __dirname: false,
   },
   entry: './src/js/main.js',
+  devtool: 'inline-source-map',
   output: { 
     path: __dirname + '/dist', 
     filename: "app.js" ,
@@ -49,8 +50,16 @@ module.exports = {
                 options: { 
                 presets: [ "@babel/preset-env", ] }
         }
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       }
       ]
+    },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
     },
     optimization: {
       minimizer: [
