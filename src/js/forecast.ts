@@ -1,9 +1,10 @@
-import { validation } from "./formValidation.js";
-import { clearContent } from "./clearContent.js";
-const key = 'd5b2e1a2f78a432e82221541221212';
+import { validation } from "./formValidation";
+import { clearContent } from "./clearContent";
+import Mustache from 'mustache';
+const key: string = 'd5b2e1a2f78a432e82221541221212';
 const invalidCity = document.getElementById('invalideName');
 const displayDiv = document.getElementById('weatherResult');
-const city = document.getElementById('city');
+const city = (<HTMLInputElement>document.getElementById('city'));
 
 const weatherForecast = function() {document.getElementById('forecastBtn').addEventListener('click', e=>{
     e.preventDefault();
@@ -13,7 +14,7 @@ const weatherForecast = function() {document.getElementById('forecastBtn').addEv
     var listContent = "";
     if (validation()) {
         const url = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city.value}&days=5&aqi=no&alerts=no`;
-        fetch(url).then(response=> response.json()).then(data => {
+         fetch(url).then(response=> response.json()).then(data => {
             listContent +=  `<li><span class="resultHeadLine">${data.location.name}, ${data.location.country} in Next Three Days:<span></li>`
             var forecastData = data.forecast.forecastday;
             forecastData.forEach(element=>{

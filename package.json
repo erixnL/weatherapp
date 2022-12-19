@@ -24,9 +24,12 @@
         "webpack-dev-server": "^4.11.1"
     },
     "dependencies": {
+        "@types/mustache": "^4.2.2",
         "babel-loader": "^9.1.0",
         "cli": "^1.0.1",
         "css-minimizer-webpack-plugin": "^4.2.2",
+        "mustache": "^4.2.0",
+        "mustache-loader": "^1.4.3",
         "plugin": "^0.0.15",
         "sass-mixins": "^0.13.0",
         "terser": "^5.16.1",

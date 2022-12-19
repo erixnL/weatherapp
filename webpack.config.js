@@ -11,12 +11,16 @@ module.exports = {
   node: {
     __dirname: false,
   },
-  entry: './src/js/main.js',
+  entry: './src/js/main.ts',
   devtool: 'inline-source-map',
   output: { 
     path: __dirname + '/dist', 
     filename: "app.js" ,
     clean: true,
+    environment: {
+      module: true,
+      dynamicImport: true,   // Note you need to enable `dynamicImport ` here
+    },
   }, 
   devServer: { 
     watchFiles: ["src/**/*", "index.html"],
@@ -52,7 +56,7 @@ module.exports = {
         }
       },
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       }

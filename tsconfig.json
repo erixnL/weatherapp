@@ -2,9 +2,9 @@
     "compilerOptions": {
       "outDir": "./dist/",
       "sourceMap": true,
-      "noImplicitAny": true,
-      "module": "es6",
-      "target": "ES2017",
+      "noImplicitAny": false,
+      "module": "CommonJS",
+      "target": "ES6",
       "jsx": "react",
       "allowJs": true,
       "moduleResolution": "node",

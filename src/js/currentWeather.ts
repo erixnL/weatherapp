@@ -1,16 +1,17 @@
-import { validation } from "./formValidation.js";
-import { clearContent } from "./clearContent.js";
-const key = 'd5b2e1a2f78a432e82221541221212';
+import Mustache from 'mustache';
+import { validation } from "./formValidation";
+import { clearContent } from "./clearContent";
+const key:string = 'd5b2e1a2f78a432e82221541221212';
 const invalidCity = document.getElementById('invalideName');
 const displayDiv = document.getElementById('weatherResult');
-const city = document.getElementById('city');
+const city = (<HTMLInputElement>document.getElementById('city'));
 
 const currentWeatherSearch = function () {document.getElementById('submit').addEventListener('click', e=>{
     e.preventDefault(); 
     validation();
     clearContent();
     if (validation()) {
-        const url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city.value}&aqi=no`;
+        const url:string = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city.value}&aqi=no`;
         fetch(url).then(response=> response.json()).then(data => {
             var dataSet = {
                 "icon": "https://" + data.current.condition.icon.split('//')[1],
