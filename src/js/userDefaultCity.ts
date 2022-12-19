@@ -4,7 +4,7 @@ let defaultCityDiv: HTMLElement = document.getElementById('defaultCity');
 let defaultCity: string = 'wollongong';
 let dataSet = {};
 
-const showDefaultCity = function(){ 
+const showDefaultCity = function(): void { 
     defaultCity = localStorage.getItem("defaultCity");
     const url: string = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${defaultCity}&aqi=no`;
     fetch(url).then(response=> response.json()).then(data => {
@@ -28,7 +28,7 @@ const showDefaultCity = function(){
                 var renderedContent = Mustache.render(template, undefined);
                 defaultCityDiv.innerHTML = renderedContent;
                 var saveDefault = document.getElementById('saveChange');
-                saveDefault.addEventListener('click', function(){
+                saveDefault.addEventListener('click', function(): void {
                     e.preventDefault();
                     let newCity = (<HTMLInputElement>document.getElementById('changedCity')).value;
                     localStorage.setItem("defaultCity", newCity);

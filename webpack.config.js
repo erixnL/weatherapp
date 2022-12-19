@@ -19,7 +19,7 @@ module.exports = {
     clean: true,
     environment: {
       module: true,
-      dynamicImport: true,   // Note you need to enable `dynamicImport ` here
+      dynamicImport: true, 
     },
   }, 
   devServer: { 

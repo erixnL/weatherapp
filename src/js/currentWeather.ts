@@ -6,7 +6,7 @@ const invalidCity = document.getElementById('invalideName');
 const displayDiv = document.getElementById('weatherResult');
 const city = (<HTMLInputElement>document.getElementById('city'));
 
-const currentWeatherSearch = function () {document.getElementById('submit').addEventListener('click', e=>{
+const currentWeatherSearch = function (): void {document.getElementById('submit').addEventListener('click', e=>{
     e.preventDefault(); 
     validation();
     clearContent();

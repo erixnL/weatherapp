@@ -6,7 +6,7 @@ const invalidCity = document.getElementById('invalideName');
 const displayDiv = document.getElementById('weatherResult');
 const city = (<HTMLInputElement>document.getElementById('city'));
 
-const weatherForecast = function() {document.getElementById('forecastBtn').addEventListener('click', e=>{
+const weatherForecast = function(): void {document.getElementById('forecastBtn').addEventListener('click', e=>{
     e.preventDefault();
     validation();
     clearContent();
@@ -17,7 +17,7 @@ const weatherForecast = function() {document.getElementById('forecastBtn').addEv
          fetch(url).then(response=> response.json()).then(data => {
             listContent +=  `<li><span class="resultHeadLine">${data.location.name}, ${data.location.country} in Next Three Days:<span></li>`
             var forecastData = data.forecast.forecastday;
-            forecastData.forEach(element=>{
+            forecastData.forEach(element =>{
                     var perDay = {
                         "date": element.date.slice(5),
                         "max": element.day.maxtemp_c,

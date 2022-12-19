@@ -6,7 +6,7 @@ import { currentWeatherSearch } from './currentWeather';
 import { weatherForecast } from './forecast';
 
 const city = (<HTMLInputElement>document.getElementById('city'));
-city.onfocus = function(){
+city.onfocus = function(): void {
     city.value=''; 
     emptyInput.style.display = 'none';
     invalidCity.style.display = 'none';
