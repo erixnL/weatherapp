@@ -1,3 +1,5 @@
+//model
+//return data
 import { mainURL } from "./urlConstructor";
 import { WeatherInfo } from "./interface";
 

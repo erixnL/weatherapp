@@ -1,3 +1,6 @@
+// generate url for currentWeather (default city and user search) and forecast 
+// user search should conduct validation first and return true to continue
+
 const key: string = 'd5b2e1a2f78a432e82221541221212';
 const city = (<HTMLInputElement>document.getElementById('city'));
 
