@@ -1,4 +1,3 @@
-const path = require('path'); 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -11,11 +10,11 @@ module.exports = {
   node: {
     __dirname: false,
   },
-  entry: './src/js/main.ts',
+  entry: './src/ts/app.ts',
   devtool: 'inline-source-map',
   output: { 
     path: __dirname + '/dist', 
-    filename: "app.js" ,
+    filename: "main.js" ,
     clean: true,
     environment: {
       module: true,

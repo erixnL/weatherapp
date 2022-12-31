@@ -34,13 +34,13 @@
         </div>
         <script id="template" type="x-tmpl-mustache">
             <span class="cityName">{{name}}, {{country}}</span>        
-            <span id="weather"><img class = "icon" src={{icon}}><span class="weatherText">{{text}}</span><span class="temperature"> {{temp_c}} &#8451;</span></span>
+            <span id="weather"><img class = "icon" src={{icon}}><span class="weatherText">{{text}}</span><span class="temperature"> {{currentTemperature}} &#8451;</span></span>
         </script>
         <script id="changeTemplate" type="x-tmpl-mustache">
             <input id="changedCity"><button id="saveChange">Save</button>
         </script>
         <script id="forecastTemplate" type="x-tmpl-mustache">
-            <li><span>{{date}}:  {{max}} - {{min}} &#8451;</span><img class="icon" src={{icon}}><span class="weatherText">{{conditionText}}</span></li>
+            <li><span>{{date}}:  {{maxTemperature}} - {{minTemperature}} &#8451;</span><img class="icon" src={{icon}}><span class="weatherText">{{text}}</span></li>
         </script>
     </section>
     <script src="https://unpkg.com/mustache@latest"></script>
