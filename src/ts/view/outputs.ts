@@ -12,7 +12,7 @@ export class WeatherResult {
             "name": data.location.name,
             "country": data.location.country
         };
-        var template = document.getElementById('template').innerHTML
+        var template = document.querySelector<HTMLElement>('#template').innerHTML
         var renderedContent = Mustache.render(template, dataSet);
         this.displayDiv.innerHTML = renderedContent;
     }
@@ -30,7 +30,7 @@ export class WeatherResult {
                         "icon": "https:" + element.day.condition.icon,
                         "text": element.day.condition.text,
                     };
-                    var template = document.getElementById('forecastTemplate').innerHTML
+                    var template = document.querySelector<HTMLElement>('#forecastTemplate').innerHTML
                     var renderedContent = Mustache.render(template, perDay);
                     listContent += renderedContent;     
                 });

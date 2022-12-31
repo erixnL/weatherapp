@@ -1,7 +1,8 @@
 import '../css/main.scss';
 import { WeatherSearch } from "./controllers/userSearch";
 import { onfocusReset } from './lib/contentReset';
-import { DefaultCity } from './view/defaultCity';
+import { DefaultCity } from './model/defaultCity';
+
 
 onfocusReset();
 const newUserSearch = new WeatherSearch();
