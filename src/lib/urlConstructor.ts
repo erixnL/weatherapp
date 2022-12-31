@@ -1,44 +1,27 @@
-// generate url for currentWeather (default city and user search) and forecast 
-// user search should conduct validation first and return true to continue
-
-const key: string = 'd5b2e1a2f78a432e82221541221212';
-const city = (<HTMLInputElement>document.getElementById('city'));
-
 import { validation } from "./validation";
-let mainURL = '';
 
-class UrlGenerator {
-    url: string;
+export class UrlGenerator {
+    key: string = 'd5b2e1a2f78a432e82221541221212';
+    city = document.querySelector<HTMLInputElement>('#city');
+    currentWeatherUrl: string = `http://api.weatherapi.com/v1/current.json?key=${this.key}&q=${this.city.value}&aqi=no`;
+    forecastUrl:string = `http://api.weatherapi.com/v1/forecast.json?key=${this.key}&q=${this.city.value}&days=5&aqi=no&alerts=no`;
     
-    constructor() {
 
+    getDefaultCityUrl() {
+        let userDefinedCity = localStorage.getItem("defaultCity");
+        if (userDefinedCity == '' || userDefinedCity == null){
+            userDefinedCity = 'wollongong';
+        }
+        return `http://api.weatherapi.com/v1/current.json?key=${this.key}&q=${userDefinedCity}&aqi=no`
     }
-}
-export function defaultCityUrl(): string {
-    let userDefinedCity = localStorage.getItem("defaultCity");
-    if (userDefinedCity){
-        mainURL = mainURL + `current.json?key=${key}&q=${userDefinedCity}&aqi=no`;
-    } else {
-        mainURL = mainURL + `current.json?key=${key}&q=wollongong&aqi=no`;
-    }
-    return mainURL;
-}
 
-export function currentWeatherUrl(): string {
-    if(validation()){
-        mainURL = mainURL + `current.json?key=${key}&q=${city}&aqi=no`;
-        return mainURL;
+    public getUserSearchUrl() {
+        if (validation()) {
+            return this.forecastUrl
+        }
     }
 }
 
-// export function forecastWeatherUrl(): string {
-//     if(validation()){
-//         return mainURL + `forecast.json?key=${key}&q=${city.value}&days=5&aqi=no&alerts=no`;
-//     }
-
-// }
-
-export {mainURL};
 
 
 
