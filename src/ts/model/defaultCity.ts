@@ -1,7 +1,8 @@
 import Mustache from 'mustache';
-import { WeatherInfo } from '../lib/interface';
+import { WeatherInfo} from '../lib/interface';
 import { returnApiInfo } from './dataReturned';
 import { UrlGenerator } from '../controllers/urlConstructor';
+
 
 export class DefaultCity {
     defaultCityDiv = document.querySelector<HTMLDivElement>('#defaultCity');
@@ -9,13 +10,13 @@ export class DefaultCity {
     showDefault() {
         var url = new UrlGenerator();
         var targetUrl = url.getDefaultCityUrl();
-        returnApiInfo(targetUrl).then(data =>{
+        returnApiInfo(targetUrl).then((data) => { 
             var dataSet: WeatherInfo = {
                 icon: "https://" + data.current.condition.icon.split('//')[1],
-                "text": data.current.condition.text,
-                "currentTemperature": data.current.temp_c,
-                "name": data.location.name,
-                "country": data.location.country
+                text: data.current.condition.text,
+                currentTemperature: data.current.temp_c,
+                name: data.location.name,
+                country: data.location.country
             };
     
             var template = document.querySelector<HTMLElement>('#userCityTemplate').innerHTML

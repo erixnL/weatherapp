@@ -8,3 +8,4 @@ export interface WeatherInfo {
     maxTemperature?: string | number;
     minTemperature?: string | number;
 }
+
