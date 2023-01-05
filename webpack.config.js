@@ -32,6 +32,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
+      favicon: './src/favicon.png',
       filename: 'index.html'
     }),
     new MiniCssExtractPlugin(),
@@ -58,7 +59,11 @@ module.exports = {
         test: /\.ts?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-      }
+      },
+      {
+        test: /\.(png|svg|jpg|gif|ico)$/,
+        use: ['file-loader?name=[name].[ext]']
+    }
       ]
     },
     resolve: {
