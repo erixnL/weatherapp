@@ -1,11 +1,11 @@
-import { WeatherInfo } from "../lib/interface";
+import { CurrentWeather, ForecastWeather } from "../lib/types";
 import Mustache from 'mustache';
 
 export class WeatherResult {
     displayDiv = document.querySelector<HTMLDivElement>('#weatherResult');
 
-    showCurrentWeather(data) {
-        var dataSet: WeatherInfo = {
+    showCurrentWeather(data: CurrentWeather) {
+        var dataSet = {
             icon: "https://" + data.current.condition.icon.split('//')[1],
             "text": data.current.condition.text,
             "currentTemperature": data.current.temp_c,
@@ -17,18 +17,18 @@ export class WeatherResult {
         this.displayDiv.innerHTML = renderedContent;
     }
 
-    showForecast(data) {
+    showForecast(data: ForecastWeather) {
         var forecastList = document.createElement('ul');
         var listContent = "";
         listContent +=  `<li><span class="resultHeadLine">${data.location.name}, ${data.location.country} in Next Three Days:<span></li>`
             var forecastData = data.forecast.forecastday;
-            forecastData.forEach(element =>{
-                    var perDay: WeatherInfo = {
-                        "date": element.date.slice(5),
-                        "maxTemperature": element.day.maxtemp_c,
-                        "minTemperature":element.day.mintemp_c,
-                        "icon": "https:" + element.day.condition.icon,
-                        "text": element.day.condition.text,
+            forecastData.forEach((forecastday) =>{
+                    var perDay = {
+                        "date": forecastday.date.slice(5),
+                        "maxTemperature": forecastday.day.maxtemp_c,
+                        "minTemperature":forecastday.day.mintemp_c,
+                        "icon": "https:" + forecastday.day.condition.icon,
+                        "text": forecastday.day.condition.text,
                     };
                     var template = document.querySelector<HTMLElement>('#forecastTemplate').innerHTML
                     var renderedContent = Mustache.render(template, perDay);
