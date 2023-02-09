@@ -1,0 +1,22 @@
+#defaultCity {
+    margin-top: 10px;
+    color: black;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #edf7fa;
+    padding: 3px;
+    width: 70%;
+}
+#defaultCity .cityName {
+    margin-top: 25px;
+    margin-right: 10px;
+    display: inline-block;
+    font-size: 1em;
+}
+#defaultCity #weather {
+    display: block;
+    
+}
+#defaultCity .weatherText, .tem{
+    font-size: 0.8em;
+}

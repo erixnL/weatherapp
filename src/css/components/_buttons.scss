@@ -1,0 +1,16 @@
+.buttons {
+    grid-area: buttons;
+}
+button {
+    border: none;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: $btn-background;
+}
+button:hover {
+    background-color: $btn-hover-background;
+}
+#changeDefault {
+    display: inline-block;
+}

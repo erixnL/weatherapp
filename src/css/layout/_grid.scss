@@ -1,0 +1,51 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+    "h1 h1"
+    "main result";
+}
+section#main {
+    display: grid;
+    grid-area: main;
+    grid-template-areas: 
+    "form"
+    "defaultCity";
+}
+section#result {
+    grid-area: result;
+}
+#defaultCity {
+    grid-area: defaultCity;
+}
+#weatherResult {
+    display: grid;
+    grid-area: result;
+    grid-template-areas: 
+    "cityName"
+    "weather";
+}
+#weather {
+    grid-area: weather;
+}
+h1 {
+    grid-area: h1;
+}
+form {
+    display: grid;
+    grid-area: form;
+    grid-template-areas: 
+    "label"
+    "input"
+    "errors"
+    "buttons";
+}
+input {
+    grid-area: input;
+}
+label {
+    grid-area: label;
+}
+span.error {
+    grid-area: errors;
+}

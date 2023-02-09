@@ -1,4 +1,3 @@
-const path = require('path'); 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -11,11 +10,16 @@ module.exports = {
   node: {
     __dirname: false,
   },
-  entry: './src/js/main.js',
+  entry: './src/ts/app.ts',
+  devtool: 'inline-source-map',
   output: { 
     path: __dirname + '/dist', 
-    filename: "app.js" ,
+    filename: "main.js" ,
     clean: true,
+    environment: {
+      module: true,
+      dynamicImport: true, 
+    },
   }, 
   devServer: { 
     watchFiles: ["src/**/*", "index.html"],
@@ -27,7 +31,8 @@ module.exports = {
       filename: '[name].css',
     }),
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: "./src/index.html",
+      favicon: './src/favicon.png',
       filename: 'index.html'
     }),
     new MiniCssExtractPlugin(),
@@ -35,9 +40,9 @@ module.exports = {
   module: {
     rules: [
         {
-          test: /\.css$/,
+          test: /\.(scss|css)$/,
           use: [
-            MiniCssExtractPlugin.loader, 'css-loader'
+            MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader',
             ]
           
         },
@@ -49,8 +54,20 @@ module.exports = {
                 options: { 
                 presets: [ "@babel/preset-env", ] }
         }
-      }
+      },
+      {
+        test: /\.ts?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(png|svg|jpg|gif|ico)$/,
+        use: ['file-loader?name=[name].[ext]']
+    }
       ]
+    },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
     },
     optimization: {
       minimizer: [

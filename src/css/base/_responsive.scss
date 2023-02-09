@@ -1,0 +1,64 @@
+body {
+    @include lg {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+    @include sm {
+        display: block;
+    }
+
+  
+}
+section#result {
+    @include lg {
+        width: 100%;
+    }
+    @include sm {
+        display: block;
+    }
+}
+
+section#main {
+    @include md {
+        height: auto;
+        border-right: none; 
+    }         
+}
+#weatherResult {
+    @include md {
+        margin-top: 10px;
+        font-size: 0.8em;
+    }
+    @include sm {
+        display: block;
+        margin-top: 20px;
+    }
+}
+#defaultCity {
+    @include md {
+        width: 100%;
+        clear: right;
+    }   
+}
+.weather {
+    @include sm {
+        display: block;
+    } 
+}
+#changeDefault {
+    @include sm {
+        width: 18%;
+        font-size: 0.5em;
+    }      
+}
+.icon {
+    @include lg {
+        display: block;
+        width: 15%;
+    }   
+}
+.weatherText, .icon {
+    @include lg {
+        display: inline-block;
+    }
+}

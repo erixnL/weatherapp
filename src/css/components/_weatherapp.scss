@@ -1,18 +1,13 @@
+section#result {
+    width: 80%;
+}
 #weatherResult {
-    display: grid;
-    grid-area: result;
     height: auto;
-    grid-template-areas: 
-    "cityName"
-    "weather";
 }
 .temperature {
     font-weight: bold;
     color: grey;
     font-size: 1.2rem;
-}
-#weather {
-    grid-area: weather;
 }
 .icon {
     margin-right: 10px;
