@@ -35,6 +35,7 @@
         "sass-mixins": "^0.13.0",
         "terser": "^5.16.1",
         "typescript": "^4.9.4"
+        "webpack": "^5.75.0"
     },
     "optionalDependencies": {
         "win-node-env": "^0.6.1"
