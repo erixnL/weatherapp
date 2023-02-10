@@ -32,17 +32,17 @@
             </script>
         </section>
         <section class="flex flex-col md:border-l-4" id="result">
-            <div class="p-5" id="weatherResult">
+            <div class="p-2 md:p-5" id="weatherResult">
             </div>
             <script id="template" type="x-tmpl-mustache">
-                <span class="text-2xl block md:ml-10">{{name}}, {{country}}</span>        
+                <span class="text-xl block mt-3 md:text-2xl md:ml-10">{{name}}, {{country}}</span>        
                 <span id="weather" class="flex flex-row items-center space-x-3 md:ml-10"><img class="w-18" src={{icon}}><span>{{text}}</span><span> {{currentTemperature}} &#8451;</span></span>
             </script>
             <script id="changeTemplate" type="x-tmpl-mustache">
-                <input class="border border-gray-300" id="changedCity"><button class="rounded text-black bg-brightOrange px-3 ml-5" id="saveChange">Save</button>
+                <input class="border border-gray-300" id="changedCity"><button class="rounded text-sm text-black bg-brightOrange px-3 ml-5" id="saveChange">Save</button>
             </script>
             <script id="forecastTemplate" type="x-tmpl-mustache">
-                <li class="flex flex-row items-center space-x-3 px-3 border-b-2 md:px-5 md:border-b-2"><span>{{date}}:  {{maxTemperature}} - {{minTemperature}} &#8451;</span><img class="icon" src={{icon}}><span class="weatherText">{{text}}</span></li>
+                <li class="flex flex-row text-sm items-center space-x-2 px-1 border-b-2 md:text-base md:px-5 md:space-x-3 md:border-b-2"><span>{{date}}:  {{maxTemperature}} - {{minTemperature}} &#8451;</span><img class="icon" src={{icon}}><span class="weatherText">{{text}}</span></li>
             </script>
         </section>
     </section>
