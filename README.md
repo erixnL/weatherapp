@@ -15,5 +15,5 @@ Weather API used for this project: https://www.weatherapi.com/<br>
 ## Set Up
 1. clone this repository
 2. npm install
-3. start dev server: npm run start
+3. start dev server: npm start
 4. production build: npm run build
