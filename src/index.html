@@ -10,15 +10,15 @@
     <title>Weather Report</title>
     <link rel="shortcut icon"  type="image/png" href="../src/favicon.png"/>
 </head>
-<body class="bg-summerBlue text-white ml-5">
-    <h1 class="block text-5xl font-bold text-left mt-10 mb-5">Weather Report</h1>
-    <section class="flex flex-row space-x-20" id="bodyContent">
+<body class="bg-summerBlue text-white mx-8 md:ml-5">
+    <h1 class="block text-3xl md:text-5xl font-bold text-left mt-10 mb-2 md:mb-5">Weather Report</h1>
+    <section class="flex flex-col md:flex-row md:space-x-20" id="bodyContent">
         <section class="flex flex-col space-y-6" id="main">
             <form class="flex flex-col">
                 <label class="mt-4" for="city">* Enter city name: </label>
-                <input  type="text" id="city" name="q" autofocus>
-                <span class="text-errorRed" id="invalideName">Please search for a valid city😩</span>
-                <span class="text-errorRed" id="emptyInput">*City name must be identified</span>
+                <input  class="px-2" type="text" id="city" name="q" autofocus>
+                <span class="text-errorRed hidden" id="invalideName">Please search for a valid city😩</span>
+                <span class="text-errorRed hidden" id="emptyInput">*City name must be identified</span>
                 <div class="flex flex-row space-x-7 mt-3">
                     <button type="submit" value="currentWeather" id="currentBtn" class="rounded text-black bg-brightOrange px-3">Search</button>
                     <button type="submit" value="forecast" id="forecastBtn" class="rounded text-black bg-brightOrange px-3">Forecast</button>
@@ -31,18 +31,18 @@
                 <span id="text-base"><img src={{icon}}><span>{{text}}</span><span class="tem"> {{temp_c}} &#8451;</span></span>
             </script>
         </section>
-        <section class="flex flex-col border-l-4" id="result">
+        <section class="flex flex-col md:border-l-4" id="result">
             <div class="p-5" id="weatherResult">
             </div>
             <script id="template" type="x-tmpl-mustache">
-                <span class="text-2xl block ml-10">{{name}}, {{country}}</span>        
-                <span id="weather" class="flex flex-row items-center space-x-3 ml-10"><img class="w-18" src={{icon}}><span>{{text}}</span><span> {{currentTemperature}} &#8451;</span></span>
+                <span class="text-2xl block md:ml-10">{{name}}, {{country}}</span>        
+                <span id="weather" class="flex flex-row items-center space-x-3 md:ml-10"><img class="w-18" src={{icon}}><span>{{text}}</span><span> {{currentTemperature}} &#8451;</span></span>
             </script>
             <script id="changeTemplate" type="x-tmpl-mustache">
                 <input class="border border-gray-300" id="changedCity"><button class="rounded text-black bg-brightOrange px-3 ml-5" id="saveChange">Save</button>
             </script>
             <script id="forecastTemplate" type="x-tmpl-mustache">
-                <li class="flex flex-row items-center space-x-3 px-5 border-b-2"><span>{{date}}:  {{maxTemperature}} - {{minTemperature}} &#8451;</span><img class="icon" src={{icon}}><span class="weatherText">{{text}}</span></li>
+                <li class="flex flex-row items-center space-x-3 px-3 border-b-2 md:px-5 md:border-b-2"><span>{{date}}:  {{maxTemperature}} - {{minTemperature}} &#8451;</span><img class="icon" src={{icon}}><span class="weatherText">{{text}}</span></li>
             </script>
         </section>
     </section>
