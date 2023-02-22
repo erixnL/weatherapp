@@ -20,7 +20,7 @@ export class WeatherResult {
     showForecast(data: ForecastWeather) {
         var forecastList = document.createElement('ul');
         var listContent = "";
-        listContent +=  `<li><span class="resultHeadLine">${data.location.name}, ${data.location.country} in Next Three Days:<span></li>`
+        listContent +=  `<li><span class="text-xl px-1 block mb:2 md:text-2xl md:px-5 mb-5">${data.location.name}, ${data.location.country} in Next Three Days:<span></li>`
             var forecastData = data.forecast.forecastday;
             forecastData.forEach((forecastday) =>{
                     var perDay = {

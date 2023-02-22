@@ -1,4 +1,4 @@
-import '../css/main.scss';
+import '../input.css';
 import { WeatherSearch } from "./controllers/userSearch";
 import { onfocusReset } from './lib/contentReset';
 import { DefaultCity } from './model/defaultCity';
