@@ -1,5 +1,5 @@
 # Weatherapp
-Project to build a webpage to get real time weather condition and forecast for one specific city identified by the user.<br>
+This project aims to build an API-Driven weather application to deliver real-time weather conditions and forecasts for a designated city.<br>
 Initial View:<br>
 ![image](https://user-images.githubusercontent.com/96608889/209619803-06dd282d-5aff-48ce-8006-f89536d3e17b.png)<br>
 
